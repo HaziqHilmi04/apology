@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apology Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Cool and Modern Color Scheme */
+        body {
+            background: linear-gradient(135deg, #a0c4ff, #bdb2ff);
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column; /* Changed to column for stacking */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            max-width: 500px;
+            width: 100%;
+            background: #ffffff;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px; /* Added margin for spacing */
+        }
+        .form-control {
+            background: #f9f9f9;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1rem;
+            color: #333;
+        }
+        .btn-primary {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1rem;
+            width: 100%;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+        .btn-primary:hover {
+            background-color: #3b82f6;
+        }
+        /* Modal Styles */
+        .modal-body {
+            text-align: left;
+        }
+    </style>
+    <script>
+        function checkIC() {
+            const icInput = document.getElementById("icInput").value;
+            const bacaButton = document.getElementById("bacaButton");
+            if (icInput === "041031110490") {
+                bacaButton.style.display = "block";
+            } else {
+                bacaButton.style.display = "none";
+            }
+        }
+    
+        function showApology() {
+            const modal = new bootstrap.Modal(document.getElementById('apologyModal'));
+            modal.show();
+        }
+    
+        function sendReply() {
+            const reply = document.getElementById("replyInput").value;
+    
+            // Send reply to PHP script
+            fetch('save_reply.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `reply=${encodeURIComponent(reply)}`
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);  // Debugging
+                document.getElementById("replyAlert").style.display = "block";
+                document.getElementById("replyAlert").classList.add("fade-in");
+            });
+        }
+    
+        function showReplyForm() {
+            const replyForm = document.getElementById("replyForm");
+            replyForm.style.display = "block"; // Show the reply form
+        }
+    </script>
+    
+</head>
+<body>
+    <div class="card">
+        <h2>Mianhe 😔</h2>
+        <div class="mb-3">
+            <label for="icInput" class="form-label">Nombor IC</label>
+            <input type="text" class="form-control" id="icInput" placeholder="Masukkan Nombor IC" oninput="checkIC()">
+        </div>
+        <button id="bacaButton" class="btn btn-primary" onclick="showApology()" style="display: none;">Baca</button>
+    </div>
+
+    <!-- Log Masuk Button outside of the card -->
+    <button onclick="location.href='login.html'" class="btn btn-secondary">Log Masuk</button>
+
+    <!-- Apology Modal -->
+    <div class="modal fade" id="apologyModal" tabindex="-1" aria-labelledby="apologyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="apologyModalLabel">Permohonan Maaf</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>alini, haziq tahu alini bosan, meluat, serabut, klu dgr haziq mitok maaf, kalini haziq betul ii rasa saloh and betul ii nyesal
+                        mende haziq buat, haziq jujur and kalu alini nk block nk buang nombor haziq pasni haziq faham sgt ii ,haziq mitok maaf yg pasal nombor 
+                        baru alini tu, ye haziq ade lame dh nombor tu, haziq dpt no tu lame dh, mase tu haziq terjumpa ig baru alini tu mase tu x private,
+                        haziq saje jela tgk mase tu, pahtu haziq rasa nk tgk la sape follower alini mase tu, nk tgk alini ade following/follower laki ke dop
+                        scrol ii xdok, pahtu terjumpa la se ig ni name nape au x ingat dh, ig tu alini follow, haziq tgk ah ig tu jual totebag, mase tu haziq
+                        mikir mcm comel totebag ni, nk beli ke alini, pahtu ade la nombor fon kat situ, haziq save la, bila save tu haziq kejut la tgk dp nombor
+                        tu gambor alini, haziq pun mikir la , "lahh alini ke jual totebag tu", x jadi ah beli gitu, pahtu haziq x delete ah nombor tu, sapa satu
+                        aritu haziq wak status, alini meseh "did u just save my number?", haziq pun kejut ah ingat nombor baru alini tu x save nombor haziq, last ii
+                        alini boleh tgk status haziq, haziq mase tu takut nk ngaku, mcm ii la haziq buat alasan itu ini, haziq pun delete la nombor tu, lame punya 
+                        lama tu, haziq jujur ngn alini sejak first ari haziq x meseh alini terus time tu, x pernoh pun sehari haziq x rindu alini, rindu nk tanya
+                        kabor, gane blajor kimia sbb haziq mikir alini lemoh kimia, haziq risau ah tpi nk meseh nk tanya tu haziq xleh dh sbb time tu haziq ada terasa
+                        hati sket ngn alini, haziq mikir yg alini ni srabut sgt dh dgn haziq, srabut sgt dh dgr haziq mitok maaf, srabut sgt dh dgn blajor lagi
+                        tpi haziq cuma betul ii nk tahu kabor alini je mase tu, yela time skoloh dulu boleh gok tgk alini okey ke dop, riok wajoh alini tu haziq boleh
+                        tahu alini happy ke ade masaloh ke, pendam masaloh ke haziq boleh tahu, ni alini duk jauh, haziq mampu wasap jelah tanya, dh kalu alini serabut
+                        dh ngn haziq, haziq boleh buat ape je time tu, perkataan "maaf" tu jela yg boleh haziq guna utk alini stay, haziq x sanggup nk jadi stranger ngn
+                        alini, lepah pada tu haziq delete lake chat kita haziq betul ii nk move on, tapi tiap ii hari mikir ke alini, haziq sebenornya x move on ii agi
+                        dari dulu, dari masa al falah agi haziq xleh move on, dari masa amir ngn alini agi haziq xleh move on, tapi se je time tu haziq mmg xleh nk delete
+                        nombor alini hok lame sbb nape? sbb haziq mikir "at least aq boleh tgk perkembangan dia kalu dia buat status", sampai tahap tu haziq mikir nk nya
+                        tahu alini gane, tpi xdok ii pun status dari nombor tu, tpi nombor tu haziq check je tgk ke dop status hok haziq buat, alini tgk status haziq pun
+                        haziq happy dh alini, haziq boleh tipu org lain tpi haziq xleh tipu hati ngn perasaan haziq, perasaan haziq kat alini same je x bruboh sikit pun,
+                        walaupun haziq terasa hati ngn alini tpi haziq tetap xleh nk benci alini, haziq mudoh je maafkan, xperlah pasni haziq akn cuba x meseh dh alini
+                        haziq doa sgt ii urusan dunia akhirat alini dipermudahkan, alini dpt hadapi dgn tenang, haziq nk mitok maaf SANGAT ii haziq x hormat privacy
+                        alini, haziq tipu alini, haziq tahu alini xkkan caye dh haziq pasni, tpi ni last haziq kabor, haziq jujur sgt ii, haziq buat ni sbb haziq nk
+                        make sure alini okey, haziq takut sgt ii ngn keadaan zaman skang, member ii haziq ramai dh yg culture shock, molek ii tudung dulu leni freehair,
+                        sbb tu haziq delete lake contact puang dlm fon, remove lake follower/following puang kat ig haziq, haziq x sanggup tgk kawan haziq jadi gitu,
+                        terutama alini, haziq mitok sgt ii, jaga diri alini betul ii, xyoh care org laki skang, kalu la satu masa ekgi alini ade minat sorang laki ni,
+                        tolong sgt ii alini jgn downgrade diri alini utk laki tu, biar laki tu yg usaha sungguh ii nk dpt alini, sbb alini berharga, jgn la buat gitu,
+                        laki ni kalu dia senang dpt sesuatu dia xkkan tahu cara hargai, tpi kalu dia bersusoh payoh nk dpt sesuatu, mmg dia akan hargai, haziq ase tu jela
+                        haziq boleh ckp, kalau ade nk balas nape ii tekan je button balas kat bawah tu ekgi haziq baca, website ni haziq buat sendiri tau,pasni alini delete jelah 
+                        nombor haziq block ke ape, sbb haziq x mampu nk buat tu, alini block delete nombor haziq biar haziq blajor move on....and kalau kita ada terserempak kat 
+                        mana ii pasni, haziq harap sgt kita boleh bertegur depan ii walaupun mnde tu x pernoh berlaku, tpi tolong, haziq xmbuh sgt ii jadi stranger ngn alini....
+                        Thank you for everything. Bittaufiq Wa Najah.
+                        
+                    </p>
+                    <div id="replyAlert" class="alert alert-success" style="display: none;">Reply sent successfully!</div>
+                    <div id="replyForm" style="display: none;">
+                        <textarea id="replyInput" class="form-control" placeholder="Type your reply here..."></textarea>
+                        <button class="btn btn-primary" onclick="sendReply()">Send Reply</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="showReplyForm()">Reply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
